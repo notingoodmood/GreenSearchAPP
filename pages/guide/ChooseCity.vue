@@ -1,0 +1,281 @@
+<template>
+	<view>
+		<view class="title">
+			选择您所在的城市
+		</view>
+		<uni-list>
+			<view>
+				<uni-list-item class="item" v-for="object in Cities" style="position: relative;" :title="object.name" showArrow="false" @click="ChangeCity(object)"></uni-list-item>
+			</view>
+		</uni-list>
+	</view>
+</template>
+
+<script>
+	import uniList from '@/components/uni-list/uni-list.vue';
+	import uniListItem from '@/components/uni-list-item/uni-list-item.vue';
+	export default {
+		components: {uniList,uniListItem},
+		data() {
+			return {
+				Cities:[
+					{
+						value:"成都",
+						name:"成\xa0\xa0\xa0\xa0都",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"北京",
+						name:"北\xa0\xa0\xa0\xa0京",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					},
+					{
+						value:"长春",
+						name:"长\xa0\xa0\xa0\xa0春",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"重庆",
+						name:"重\xa0\xa0\xa0\xa0庆",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"长沙",
+						name:"长\xa0\xa0\xa0\xa0沙",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"大连",
+						name:"大\xa0\xa0\xa0\xa0连",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"德阳",
+						name:"德\xa0\xa0\xa0\xa0阳",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"福州",
+						name:"福\xa0\xa0\xa0\xa0州",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"广元",
+						name:"广\xa0\xa0\xa0\xa0元",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"贵阳",
+						name:"贵\xa0\xa0\xa0\xa0阳",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"广州",
+						name:"广\xa0\xa0\xa0\xa0州",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"邯郸",
+						name:"邯\xa0\xa0\xa0\xa0郸",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"哈尔滨",
+						name:"哈尔滨",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"合肥",
+						name:"合\xa0\xa0\xa0\xa0肥",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"海口",
+						name:"海\xa0\xa0\xa0\xa0口",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"杭州",
+						name:"杭\xa0\xa0\xa0\xa0州",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"济南",
+						name:"济\xa0\xa0\xa0\xa0南",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"昆明",
+						name:"昆\xa0\xa0\xa0\xa0明",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"拉萨",
+						name:"拉\xa0\xa0\xa0\xa0萨",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"兰州",
+						name:"兰\xa0\xa0\xa0\xa0州",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"宁波",
+						name:"宁\xa0\xa0\xa0\xa0波",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"南京",
+						name:"南\xa0\xa0\xa0\xa0京",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"南宁",
+						name:"南\xa0\xa0\xa0\xa0宁",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"青岛",
+						name:"青\xa0\xa0\xa0\xa0岛",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"上海",
+						name:"上\xa0\xa0\xa0\xa0海",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"石家庄",
+						name:"石家庄",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"沈阳",
+						name:"沈\xa0\xa0\xa0\xa0阳",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"深圳",
+						name:"深\xa0\xa0\xa0\xa0圳",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"苏州",
+						name:"苏\xa0\xa0\xa0\xa0州",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"泰安",
+						name:"泰\xa0\xa0\xa0\xa0安",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"铜陵",
+						name:"铜\xa0\xa0\xa0\xa0陵",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"太原",
+						name:"太\xa0\xa0\xa0\xa0原",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"西安",
+						name:"西\xa0\xa0\xa0\xa0安",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"厦门",
+						name:"厦\xa0\xa0\xa0\xa0门",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"咸阳",
+						name:"咸\xa0\xa0\xa0\xa0阳",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"宜春",
+						name:"宜\xa0\xa0\xa0\xa0春",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"银川",
+						name:"银\xa0\xa0\xa0\xa0川",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					,
+					{
+						value:"宜昌",
+						name:"宜\xa0\xa0\xa0\xa0昌",
+						icon:{color:'#2EC4B6',size:'22',type:'circle'}
+					}
+					]
+			}
+		},
+		methods: {
+			ChangeCity:function(object){
+				let _this=this;
+				uni.setStorage({
+					key:"City",
+					data:object.value
+				});
+				uni.reLaunch({
+				        url: '/pages/home/home'
+				});
+			}
+		}
+	}
+</script>
+
+<style>
+	.title {
+				font-size: 45upx;
+				color: #333333;
+				text-overflow: ellipsis;
+				margin: 100upx auto 0upx auto;
+				text-align: center;
+				white-space: nowrap;
+				line-height: 1.5;
+				overflow: hidden;
+	}
+	.item{
+		font-size: 36upx;
+		padding: 0upx 30upx 20upx 30upx;
+	}
+</style>
